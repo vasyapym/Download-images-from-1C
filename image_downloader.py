@@ -275,7 +275,10 @@ def main():
     if len(sys.argv) > 1:
         xlsx_path = sys.argv[1]
     else:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
+        if getattr(sys, 'frozen', False):
+            script_dir = os.path.dirname(sys.executable)
+        else:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
         print('Папка скрипта: ' + script_dir)
         found = find_xlsx_files(script_dir)
         print('Найдено файлов .xlsx/.xls: ' + str(len(found)))
