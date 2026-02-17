@@ -3,4 +3,5 @@ urllib3
 openpyxl
 pandas
 xlrd
+lxml
 pyinstaller
